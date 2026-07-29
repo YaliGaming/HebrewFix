@@ -29,13 +29,6 @@ The stored text in the chat field is **never modified** — only the visual rend
 
 Open **Mod Menu** → **Hebrew Fix** → toggle **Enable/Disable**. Config is saved to `.minecraft/config/hebrewfix.json`.
 
-## Versions
-
-| Minecraft | Download |
-|-----------|----------|
-| **26.1 – 26.2** | `HebrewFix-1.0.0.jar` (26.x) |
-| **1.21.11** | `HebrewFix-1.0.0.jar` (1.21.11) |
-
 ## Requirements
 
 | | 1.21.11 | 26.x |
