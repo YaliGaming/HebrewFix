@@ -23,7 +23,7 @@ public class ModMenuIntegration implements ModMenuApi {
         private final Screen parent;
 
         ConfigScreen(final Screen parent) {
-            super(Component.literal("HebrewFix"));
+            super(Component.literal("Hebrew Fix"));
             this.parent = parent;
         }
 

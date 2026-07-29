@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "hebrewfix",
   "version": "${version}",
-  "name": "HebrewFix",
+  "name": "Hebrew Fix",
   "description": "Fixes RTL Hebrew chat preview rendering in Minecraft.",
   "authors": ["Yali Gaming"],
   "contact": {

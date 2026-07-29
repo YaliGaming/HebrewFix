@@ -1,4 +1,4 @@
-# HebrewFix
+# Hebrew Fix
 
 Fixes RTL Hebrew chat preview rendering in Minecraft.
 
@@ -33,12 +33,12 @@ Two JARs available, pick the one for your Minecraft version:
 
 1. Install Fabric for your Minecraft version
 2. Download Fabric API and place in `mods` folder
-3. Download the correct HebrewFix JAR and place in `mods` folder
+3. Download the correct Hebrew Fix JAR and place in `mods` folder
 4. Launch the game
 
 ## Configuration
 
-Open Mod Menu → HebrewFix → toggle Enable/Disable. Config saves to `config/hebrewfix.json`.
+Open Mod Menu → Hebrew Fix → toggle Enable/Disable. Config saves to `config/hebrewfix.json`.
 
 ## Building
 
