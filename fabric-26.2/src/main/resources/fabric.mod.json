@@ -7,8 +7,8 @@
   "authors": ["Yali Gaming"],
   "contact": {
     "homepage": "https://modrinth.com/mod/hebrewfix",
-    "sources": "https://github.com/YaliGaming/hebrewfix",
-    "issues": "https://github.com/YaliGaming/hebrewfix/issues"
+    "sources": "https://github.com/YaliGaming/HebrewFix",
+    "issues": "https://github.com/YaliGaming/HebrewFix/issues"
   },
   "license": "MIT",
   "icon": "icon.png",

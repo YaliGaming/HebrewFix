@@ -6,8 +6,9 @@
   "description": "Fixes RTL Hebrew chat preview rendering in Minecraft.",
   "authors": ["Yali Gaming"],
   "contact": {
-    "homepage": "https://github.com/yaligaming/hebrewfix",
-    "sources": "https://github.com/yaligaming/hebrewfix"
+    "homepage": "https://modrinth.com/mod/hebrewfix",
+    "sources": "https://github.com/YaliGaming/HebrewFix",
+    "issues": "https://github.com/YaliGaming/HebrewFix/issues"
   },
   "license": "MIT",
   "icon": "icon.png",
