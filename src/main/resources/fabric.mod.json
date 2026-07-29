@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "hebrewfix",
+  "version": "${version}",
+  "name": "HebrewFix",
+  "description": "Fixes RTL Hebrew chat preview rendering in Minecraft.",
+  "authors": ["Yali Gaming"],
+  "contact": {
+    "homepage": "https://github.com/yaligaming/hebrewfix",
+    "sources": "https://github.com/yaligaming/hebrewfix"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.yaligaming.hebrewfix.HebrewFixMod"
+    ],
+    "modmenu": [
+      "com.yaligaming.hebrewfix.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "hebrewfix.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": ">=1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}
