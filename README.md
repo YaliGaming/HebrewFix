@@ -16,12 +16,9 @@ Hebrew text in the chat input field displays correctly — exactly as typed — 
 
 ## Download
 
-Two JARs available, pick the one for your Minecraft version:
+Get the latest JAR from:
 
-| Minecraft Version | JAR |
-|---|---|
-| 1.21.11 | `fabric-1.21.11/build/libs/HebrewFix-1.0.0.jar` |
-| 26.1+ | `fabric-26.2/build/libs/HebrewFix-1.0.0.jar` |
+- **[Modrinth](https://modrinth.com/mod/hebrewfix)** — pick the file matching your Minecraft version (1.21.11 or 26.x)
 
 ## Requirements
 
