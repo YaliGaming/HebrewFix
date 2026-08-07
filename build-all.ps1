@@ -1,4 +1,4 @@
-# Build HebrewFix for all Minecraft versions
+# Build Hebrew Fix for all Minecraft versions
 # Run from the project root directory
 
 $ErrorActionPreference = "Stop"
@@ -9,7 +9,7 @@ $Targets = @(
     @{Name="26.x (Mojang)"; Dir="fabric-26.2"}
 )
 
-Write-Host "=== HebrewFix Multi-Version Build ===" -ForegroundColor Cyan
+Write-Host "=== Hebrew Fix Multi-Version Build ===" -ForegroundColor Cyan
 Write-Host ""
 
 foreach ($target in $Targets) {

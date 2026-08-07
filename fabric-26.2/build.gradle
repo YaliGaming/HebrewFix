@@ -83,7 +83,7 @@ modrinth {
     versionNumber = project.mod_version
     versionType = "release"
     uploadFile = jar
-    gameVersions = [project.minecraft_version]
+    gameVersions = ["26.1", "26.2"]
     loaders = ["fabric"]
     dependencies {
         required.project "fabric-api"

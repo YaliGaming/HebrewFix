@@ -1,4 +1,4 @@
-# HebrewFix
+# Hebrew Fix
 
 Fixes RTL Hebrew chat preview rendering in Minecraft.
 
@@ -16,12 +16,9 @@ Hebrew text in the chat input field displays correctly — exactly as typed — 
 
 ## Download
 
-Two JARs available, pick the one for your Minecraft version:
+Get the latest JAR from:
 
-| Minecraft Version | JAR |
-|---|---|
-| 1.21.11 | `fabric-1.21.11/build/libs/HebrewFix-1.0.0.jar` |
-| 26.1+ | `fabric-26.2/build/libs/HebrewFix-1.0.0.jar` |
+- **[Modrinth](https://modrinth.com/mod/hebrewfix/versions#download)** — pick the file matching your Minecraft version (1.21.11 or 26.x)
 
 ## Requirements
 
@@ -33,12 +30,12 @@ Two JARs available, pick the one for your Minecraft version:
 
 1. Install Fabric for your Minecraft version
 2. Download Fabric API and place in `mods` folder
-3. Download the correct HebrewFix JAR and place in `mods` folder
+3. Download the correct Hebrew Fix JAR and place in `mods` folder
 4. Launch the game
 
 ## Configuration
 
-Open Mod Menu → HebrewFix → toggle Enable/Disable. Config saves to `config/hebrewfix.json`.
+Open Mod Menu → Hebrew Fix → toggle Enable/Disable. Config saves to `config/hebrewfix.json`.
 
 ## Building
 
