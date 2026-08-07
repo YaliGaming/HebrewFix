@@ -18,7 +18,7 @@ Hebrew text in the chat input field displays correctly — exactly as typed — 
 
 Get the latest JAR from:
 
-- **[Modrinth](https://modrinth.com/mod/hebrewfix/moderation#download)** — pick the file matching your Minecraft version (1.21.11 or 26.x)
+- **[Modrinth](https://modrinth.com/mod/hebrewfix/versions#download)** — pick the file matching your Minecraft version (1.21.11 or 26.x)
 
 ## Requirements
 
