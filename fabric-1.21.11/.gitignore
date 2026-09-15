@@ -1,9 +1,7 @@
-# Gradle
 .gradle/
 build/
-!gradle/wrapper/gradle-wrapper.jar
+!**/gradle/wrapper/gradle-wrapper.jar
 
-# IDE
 .idea/
 *.iml
 *.ipr
@@ -11,17 +9,22 @@ build/
 .vscode/
 *.swp
 *.swo
+out/
+.project
+.classpath
+.settings/
+bin/
 
-# Minecraft
 run/
 logs/
+*.log
 crash-reports/
+hs_err_pid*.log
+replay_pid*.log
 
-# OS
 .DS_Store
 Thumbs.db
 
-# Java
 *.class
 *.jar
-!gradle/wrapper/gradle-wrapper.jar
+!**/gradle/wrapper/gradle-wrapper.jar

@@ -1,0 +1,116 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.17.17'
+    id 'maven-publish'
+    id 'com.modrinth.minotaur' version '2.+'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://maven.terraformersmc.com/releases/"
+    }
+}
+
+loom {
+    runs {
+        client {
+            vmArg "-XX:StackShadowPages=32"
+        }
+    }
+}
+
+def mcTarget = project.hasProperty("mc") ? project.property("mc").toString() : project.minecraft_version.toString()
+println "Configuring for Minecraft version: ${mcTarget}"
+
+def versionMatrix = [
+    "26.1": [
+        minecraft: "26.1",
+        fabric: "0.144.4+26.1",
+        loader: "0.19.3",
+        modmenu: "18.0.0"
+    ],
+    "26.2": [
+        minecraft: "26.2",
+        fabric: "0.152.2+26.2",
+        loader: "0.19.3",
+        modmenu: "20.0.1"
+    ],
+    "26.3": [
+        minecraft: "26.3",
+        fabric: "0.160.5+26.3",
+        loader: "0.19.5",
+        modmenu: "21.0.0-beta.1"
+    ]
+]
+
+def targetConfig = versionMatrix[mcTarget] ?: [
+    minecraft: mcTarget,
+    fabric: project.fabric_version,
+    loader: project.loader_version,
+    modmenu: project.modmenu_version
+]
+
+dependencies {
+    minecraft "com.mojang:minecraft:${targetConfig.minecraft}"
+    implementation "net.fabricmc:fabric-loader:${targetConfig.loader}"
+
+    implementation "net.fabricmc.fabric-api:fabric-api:${targetConfig.fabric}"
+
+    runtimeOnly "com.terraformersmc:modmenu:${targetConfig.modmenu}"
+    implementation "com.terraformersmc:modmenu:${targetConfig.modmenu}"
+}
+
+processResources {
+    inputs.property "version", project.version
+    filteringCharset "UTF-8"
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 25
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.base.archivesName.get()}" }
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir '../shared/src/main/java'
+        }
+    }
+}
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = "hebrewfix"
+    versionNumber = project.mod_version
+    versionName = "v${project.mod_version} for 26.1 - 26.3+"
+    changelog = "Added support for Minecraft 26.3"
+    versionType = "release"
+    uploadFile = jar
+    gameVersions = ["26.1", "26.2", "26.3"]
+    loaders = ["fabric"]
+    dependencies {
+        required.project "fabric-api"
+    }
+}

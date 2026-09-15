@@ -14,7 +14,7 @@ public class ModMenuIntegration implements ModMenuApi {
         return this::createConfigScreen;
     }
 
-    private Screen createConfigScreen(final Screen parent) {
+    private Screen createConfigScreen(Screen parent) {
         return new ConfigScreen(parent);
     }
 
@@ -22,14 +22,14 @@ public class ModMenuIntegration implements ModMenuApi {
 
         private final Screen parent;
 
-        ConfigScreen(final Screen parent) {
+        ConfigScreen(Screen parent) {
             super(Component.literal("Hebrew Fix"));
             this.parent = parent;
         }
 
         @Override
         protected void init() {
-            final boolean enabled = HebrewFixConfig.isEnabled();
+            boolean enabled = HebrewFixConfig.isEnabled();
 
             addRenderableWidget(Button.builder(
                 Component.literal("Status: ")
@@ -38,7 +38,7 @@ public class ModMenuIntegration implements ModMenuApi {
                             enabled ? 0x55FF55 : 0xFF5555)),
                 btn -> {
                     HebrewFixConfig.toggle();
-                    final boolean now = HebrewFixConfig.isEnabled();
+                    boolean now = HebrewFixConfig.isEnabled();
                     btn.setMessage(Component.literal("Status: ")
                         .append(Component.literal(now ? "Enabled" : "Disabled")
                             .withColor(
@@ -61,9 +61,7 @@ public class ModMenuIntegration implements ModMenuApi {
         }
 
         @Override
-        public void extractRenderState(final GuiGraphicsExtractor context,
-                          final int mouseX, final int mouseY,
-                          final float delta) {
+        public void extractRenderState(GuiGraphicsExtractor context, int mouseX, int mouseY, float delta) {
             super.extractRenderState(context, mouseX, mouseY, delta);
             context.centeredText(this.font, this.title,
                 this.width / 2, 30, 0xFFFFFF);

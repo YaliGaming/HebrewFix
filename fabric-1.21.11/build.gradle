@@ -19,27 +19,14 @@ repositories {
 }
 
 dependencies {
-    // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    // Shared code
-
-    // Fabric API
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    // Mod Menu (dev-only, for testing + config screen API)
     modRuntimeOnly "com.terraformersmc:modmenu:17.0.0"
     modImplementation "com.terraformersmc:modmenu:17.0.0"
-
-    // Testing
-    testImplementation "org.junit.jupiter:junit-jupiter:5.11.4"
-    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
-}
-
-test {
-    useJUnitPlatform()
 }
 
 processResources {
@@ -73,20 +60,17 @@ sourceSets {
             srcDir '../shared/src/main/java'
         }
     }
-    test {
-        java {
-            srcDir '../shared/src/test/java'
-        }
-    }
 }
 
 modrinth {
     token = System.getenv("MODRINTH_TOKEN")
     projectId = "hebrewfix"
     versionNumber = project.mod_version
+    versionName = "v${project.mod_version} for 1.21.11"
+    changelog = "Updated dependencies and project cleanup"
     versionType = "release"
     uploadFile = remapJar
-    gameVersions = [project.minecraft_version]
+    gameVersions = ["1.21.11"]
     loaders = ["fabric"]
     dependencies {
         required.project "fabric-api"

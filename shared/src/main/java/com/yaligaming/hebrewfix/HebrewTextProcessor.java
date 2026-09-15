@@ -9,17 +9,17 @@ public final class HebrewTextProcessor {
 
     private HebrewTextProcessor() {}
 
-    public static boolean isHebrew(final int codePoint) {
+    public static boolean isHebrew(int codePoint) {
         return (codePoint >= HEBREW_START && codePoint <= HEBREW_END)
             || (codePoint >= HEBREW_SUPP_START && codePoint <= HEBREW_SUPP_END);
     }
 
-    public static boolean containsHebrew(final String text) {
+    public static boolean containsHebrew(String text) {
         if (text == null || text.isEmpty()) {
             return false;
         }
         for (int i = 0; i < text.length(); i++) {
-            final char ch = text.charAt(i);
+            char ch = text.charAt(i);
             if ((ch >= HEBREW_START && ch <= HEBREW_END)
                     || (ch >= HEBREW_SUPP_START && ch <= HEBREW_SUPP_END)) {
                 return true;

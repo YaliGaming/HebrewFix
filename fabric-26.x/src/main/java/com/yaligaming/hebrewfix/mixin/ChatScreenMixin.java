@@ -20,18 +20,18 @@ public abstract class ChatScreenMixin {
     @Shadow
     protected boolean isDraft;
 
-    private static boolean isSpace(final int cp) {
+    private static boolean isSpace(int cp) {
         return cp == ' ';
     }
 
-    private static boolean isNeutral(final int cp) {
+    private static boolean isNeutral(int cp) {
         return cp == ',' || cp == '.' || cp == '!' || cp == '?'
             || cp == ':' || cp == ';' || cp == '-'
             || cp == '\'' || cp == '"' || cp == '(' || cp == ')'
             || cp == '[' || cp == ']';
     }
 
-    private static boolean isRtl(final int cp) {
+    private static boolean isRtl(int cp) {
         return HebrewTextProcessor.isHebrew(cp) || isNeutral(cp);
     }
 
@@ -42,9 +42,9 @@ public abstract class ChatScreenMixin {
         cancellable = true
     )
     private void hebrewfix$fixChatFormat(
-            final String text,
-            final int firstCharacterIndex,
-            final CallbackInfoReturnable<FormattedCharSequence> cir) {
+            String text,
+            int firstCharacterIndex,
+            CallbackInfoReturnable<FormattedCharSequence> cir) {
         if (text == null || text.isEmpty()
                 || text.startsWith("/")
                 || !HebrewTextProcessor.containsHebrew(text)
@@ -52,13 +52,13 @@ public abstract class ChatScreenMixin {
             return;
         }
 
-        final Style style = this.isDraft
+        Style style = this.isDraft
             ? Style.EMPTY.withColor(ChatFormatting.GRAY).withItalic(true)
             : Style.EMPTY;
 
         boolean hasEnglish = false;
         for (int t = 0; t < text.length();) {
-            final int cp = text.codePointAt(t);
+            int cp = text.codePointAt(t);
             if (!isRtl(cp) && !isSpace(cp)) {
                 hasEnglish = true;
                 break;
@@ -67,7 +67,7 @@ public abstract class ChatScreenMixin {
         }
 
         if (hasEnglish) {
-            final int[] ord = buildMixedVisitOrder(text);
+            int[] ord = buildMixedVisitOrder(text);
             cir.setReturnValue(visitor -> {
                 for (int vi = 0; vi < ord.length; vi++) {
                     if (!visitor.accept(vi, style,
@@ -83,15 +83,15 @@ public abstract class ChatScreenMixin {
         }
     }
 
-    private static int[] buildMixedVisitOrder(final String text) {
-        final List<Integer> order = new ArrayList<>(text.length());
+    private static int[] buildMixedVisitOrder(String text) {
+        List<Integer> order = new ArrayList<>(text.length());
         int i = 0;
         while (i < text.length()) {
-            final int cp = text.codePointAt(i);
+            int cp = text.codePointAt(i);
             if (isRtl(cp)) {
-                final List<Integer> run = new ArrayList<>();
+                List<Integer> run = new ArrayList<>();
                 while (i < text.length()) {
-                    final int c2 = text.codePointAt(i);
+                    int c2 = text.codePointAt(i);
                     if (isSpace(c2)) {
                         if (spaceLeadsToRtl(text, i)) {
                             run.add(i);
@@ -117,10 +117,10 @@ public abstract class ChatScreenMixin {
         return order.stream().mapToInt(x -> x).toArray();
     }
 
-    private static boolean spaceLeadsToRtl(final String text, final int pos) {
+    private static boolean spaceLeadsToRtl(String text, int pos) {
         int look = pos + 1;
         while (look < text.length()) {
-            final int lc = text.codePointAt(look);
+            int lc = text.codePointAt(look);
             if (isRtl(lc)) {
                 return true;
             } else if (!isSpace(lc)) {

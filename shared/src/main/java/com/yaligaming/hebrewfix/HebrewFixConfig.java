@@ -19,13 +19,13 @@ public final class HebrewFixConfig {
     public static void load() {
         try {
             if (Files.exists(CONFIG_PATH)) {
-                final String json = Files.readString(CONFIG_PATH);
-                final ConfigData data = GSON.fromJson(json, ConfigData.class);
+                String json = Files.readString(CONFIG_PATH);
+                ConfigData data = GSON.fromJson(json, ConfigData.class);
                 if (data != null) {
                     enabled = data.enabled;
                 }
             }
-        } catch (final Exception e) {
+        } catch (Exception e) {
             HebrewFixMod.LOGGER.warn("[HebrewFix] Failed to load config", e);
         }
     }
@@ -33,10 +33,10 @@ public final class HebrewFixConfig {
     public static void save() {
         try {
             Files.createDirectories(CONFIG_PATH.getParent());
-            final ConfigData data = new ConfigData();
+            ConfigData data = new ConfigData();
             data.enabled = enabled;
             Files.writeString(CONFIG_PATH, GSON.toJson(data));
-        } catch (final Exception e) {
+        } catch (Exception e) {
             HebrewFixMod.LOGGER.warn("[HebrewFix] Failed to save config", e);
         }
     }
@@ -45,7 +45,7 @@ public final class HebrewFixConfig {
         return enabled;
     }
 
-    public static void setEnabled(final boolean value) {
+    public static void setEnabled(boolean value) {
         enabled = value;
         save();
     }
@@ -55,7 +55,6 @@ public final class HebrewFixConfig {
         save();
     }
 
-    @SuppressWarnings("unused")
     private static class ConfigData {
         boolean enabled = true;
     }
